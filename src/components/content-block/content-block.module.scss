@@ -1,0 +1,12 @@
+.content {
+  flex-basis: 70%;
+  min-width: 300px;
+  height: 500px;
+  background-color: white;
+}
+
+@media (max-width: 960px) {
+  .content {
+    flex-basis: auto;
+  }
+}

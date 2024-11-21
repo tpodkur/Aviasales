@@ -1,0 +1,12 @@
+.filter {
+  flex-basis: 30%;
+  min-width: 300px;
+  height: 252px;
+  background-color: white;
+}
+
+@media (max-width: 960px) {
+  .filter {
+    flex-basis: auto;
+  }
+}

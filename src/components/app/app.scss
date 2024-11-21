@@ -23,9 +23,9 @@ li {
 @font-face {
   font-family: 'Open Sans';
   src:
-          local('Open Sans'),
-          local('Open Sans'),
-          url('../../fonts/OpenSans-Regular.ttf') format('truetype');
+    local('Open Sans'),
+    local('Open Sans'),
+    url('../../fonts/OpenSans-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -33,9 +33,9 @@ li {
 @font-face {
   font-family: 'Open Sans';
   src:
-          local('Open Sans'),
-          local('Open Sans'),
-          url('../../fonts/OpenSans-SemiBold.ttf') format('truetype');
+    local('Open Sans'),
+    local('Open Sans'),
+    url('../../fonts/OpenSans-SemiBold.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
 }
@@ -48,28 +48,4 @@ body {
 .app {
   display: flex;
   flex-direction: column;
-}
-
-.header {
-  margin: 0 auto;
-}
-
-.container {
-  width: 100%;
-  padding: 0 100px;
-  display: flex;
-  justify-content: space-between;
-  column-gap: 20px;
-}
-
-.side-bar {
-  flex-basis: 30%;
-  height: 252px;
-  background-color: white;
-}
-
-.main {
-  flex-basis: 70%;
-  height: 500px;
-  background-color: white;
 }
