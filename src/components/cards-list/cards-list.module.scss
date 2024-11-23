@@ -1,2 +1,9 @@
-.cards-list {
+.list {
+  margin-top: 20px;
+
+  &__item {
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
+  }
 }

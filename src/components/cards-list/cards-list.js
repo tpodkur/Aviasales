@@ -6,8 +6,14 @@ import classes from './cards-list.module.scss';
 
 const CardsList = () => {
   return (
-    <ul className={classes['cards-list']}>
-      <li>
+    <ul className={classes.list}>
+      <li className={classes.list__item}>
+        <Card />
+      </li>
+      <li className={classes.list__item}>
+        <Card />
+      </li>
+      <li className={classes.list__item}>
         <Card />
       </li>
     </ul>

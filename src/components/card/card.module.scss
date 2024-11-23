@@ -1,2 +1,43 @@
 .card {
+  height: 184px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 0 6px 0 rgba(186, 191, 193, 0.66);
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__price {
+
+  }
+
+  &__company {
+
+  }
+
+  &__details {
+    display: flex;
+  }
+
+  &__column {
+    flex-basis: 35%;
+  }
+}
+
+.column {
+
+  &__info {
+
+  }
+
+  &__field {
+
+  }
+
+  &__value {
+
+  }
 }
