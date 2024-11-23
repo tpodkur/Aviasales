@@ -1,8 +1,8 @@
 import React from 'react';
 
-import classes from './card.module.scss';
+import classes from './ticket.module.scss';
 
-const Card = () => {
+const Ticket = () => {
   return (
     <div className={classes.card}>
       <div className={classes.card__header}>
@@ -45,4 +45,4 @@ const Card = () => {
   );
 };
 
-export default Card;
+export default Ticket;

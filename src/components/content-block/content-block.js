@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Sort from '../sort/sort';
-import CardsList from '../cards-list/cards-list';
+import TicketsList from '../tickets-list/tickets-list';
 
 import classes from './content-block.module.scss';
 
@@ -9,7 +9,7 @@ const ContentBlock = () => {
   return (
     <div className={classes.content}>
       <Sort />
-      <CardsList />
+      <TicketsList />
       <button className={classes['show-tickets']}>показать еще 5 билетов!</button>
     </div>
   );

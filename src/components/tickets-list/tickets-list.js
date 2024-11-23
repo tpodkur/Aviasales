@@ -1,23 +1,23 @@
 import React from 'react';
 
-import Card from '../card/card';
+import Ticket from '../ticket/ticket';
 
-import classes from './cards-list.module.scss';
+import classes from './tickets-list.module.scss';
 
-const CardsList = () => {
+const TicketsList = () => {
   return (
     <ul className={classes.list}>
       <li className={classes.list__item}>
-        <Card />
+        <Ticket />
       </li>
       <li className={classes.list__item}>
-        <Card />
+        <Ticket />
       </li>
       <li className={classes.list__item}>
-        <Card />
+        <Ticket />
       </li>
     </ul>
   );
 };
 
-export default CardsList;
+export default TicketsList;
