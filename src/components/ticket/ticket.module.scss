@@ -11,13 +11,16 @@
   }
 
   &__price {
-  }
-
-  &__company {
+    color: #2196F3;
+    font-size: 24px;
+    line-height: 24px;
+    letter-spacing: 0;
+    font-weight: 600;
   }
 
   &__details {
     display: flex;
+    margin-top: 20px;
   }
 
   &__column {
@@ -27,11 +30,29 @@
 
 .column {
   &__info {
+    &:first-child {
+      margin-bottom: 10px;
+    }
   }
 
   &__field {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 18px;
+    color: #A0B0B9;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
   }
 
   &__value {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    color: #4A4A4A;
+    letter-spacing: 0;
+
+    &--uppercase {
+      text-transform: uppercase;
+    }
   }
 }
