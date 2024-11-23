@@ -46,5 +46,6 @@
 
 .radio:has(.radio__input:hover:not(:checked)) {
   opacity: 0.8;
+  transition: opacity 0.5s;
   cursor: pointer;
 }

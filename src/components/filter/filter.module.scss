@@ -28,7 +28,7 @@
   font-size: 13px;
   line-height: 20px;
   letter-spacing: 0;
-  color: #4A4A4A;
+  color: #4a4a4a;
 
   &__input {
     position: absolute;
@@ -39,16 +39,18 @@
     position: absolute;
     width: 20px;
     height: 20px;
-    border: 1px #9ABBCE solid;
+    border: 1px #9abbce solid;
     border-radius: 2px;
 
-    &::before, &::after {
+    &::before,
+    &::after {
       content: '';
       position: absolute;
       width: 1.5px;
-      background-color: #2196F3;
+      background-color: #2196f3;
       transform-origin: bottom;
       opacity: 0;
+      transition: all 0.2s;
     }
 
     &::before {
@@ -72,7 +74,7 @@
   }
 
   &:hover {
-    background-color: #F1FCFF;
+    background-color: #f1fcff;
   }
 }
 
@@ -82,7 +84,7 @@
 }
 
 .option__input:checked + .option__check {
-  border-color: #2196F3;
+  border-color: #2196f3;
 }
 
 .option__input:disabled ~ .option__label {
