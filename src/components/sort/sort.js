@@ -1,25 +1,15 @@
 import React from 'react';
-import { bindActionCreators } from '@reduxjs/toolkit';
+import { connect } from 'react-redux';
 
-import store from '../../store';
 import { CHEAP, FAST, OPT } from '../../constants/sort-status';
 import { setSortStatus } from '../../actions/actions';
 
 import classes from './sort.module.scss';
 
-const { dispatch } = store;
-const setSortStatusAction = bindActionCreators(setSortStatus, dispatch);
-
-const Sort = () => {
-  const [sortStatus, setSortStatus] = React.useState(CHEAP);
-
+const Sort = ({ sortStatus, setSortStatus }) => {
   const onChange = (e) => {
-    setSortStatusAction(e.target.id);
+    setSortStatus(e.target.id);
   };
-
-  store.subscribe(() => {
-    setSortStatus(store.getState().sortStatus);
-  });
 
   return (
     <div className={classes.sort}>
@@ -57,4 +47,12 @@ const Sort = () => {
   );
 };
 
-export default Sort;
+const mapStateToProps = (state) => ({
+  sortStatus: state.sortStatus,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  setSortStatus: (sortStatus) => dispatch(setSortStatus(sortStatus)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sort);
