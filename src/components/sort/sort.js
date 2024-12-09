@@ -51,8 +51,4 @@ const mapStateToProps = (state) => ({
   sortStatus: state.sortStatus,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  setSortStatus: (sortStatus) => dispatch(setSortStatus(sortStatus)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Sort);
+export default connect(mapStateToProps, { setSortStatus })(Sort);

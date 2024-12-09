@@ -71,8 +71,4 @@ const mapStateToProps = (state) => ({
   filters: state.filters,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  toggleFilter: (filterName) => dispatch(toggleFilter(filterName)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Filter);
+export default connect(mapStateToProps, { toggleFilter })(Filter);
