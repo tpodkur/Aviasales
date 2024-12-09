@@ -1,15 +1,20 @@
 import React from 'react';
+import { bindActionCreators } from '@reduxjs/toolkit';
 
-import store from '../store';
+import store from '../../store';
 import { CHEAP, FAST, OPT } from '../../constants/sort-status';
+import { setSortStatus } from '../../actions/actions';
 
 import classes from './sort.module.scss';
+
+const { dispatch } = store;
+const setSortStatusAction = bindActionCreators(setSortStatus, dispatch);
 
 const Sort = () => {
   const [sortStatus, setSortStatus] = React.useState(CHEAP);
 
   const onChange = (e) => {
-    store.dispatch({ type: 'SET_STATUS', payload: { sortStatus: e.target.id } });
+    setSortStatusAction(e.target.id);
   };
 
   store.subscribe(() => {

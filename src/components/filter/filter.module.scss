@@ -71,6 +71,10 @@
   &__label {
     position: relative;
     left: 30px;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
   }
 
   &:hover {
