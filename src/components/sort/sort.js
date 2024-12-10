@@ -1,14 +1,17 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { CHEAP, FAST, OPT } from '../../constants/sort-status';
 import { setSortStatus } from '../../actions/actions';
 
 import classes from './sort.module.scss';
 
-const Sort = ({ sortStatus, setSortStatus }) => {
+const Sort = () => {
+  const dispatch = useDispatch();
+  const sortStatus = useSelector((state) => state.sortStatus);
+
   const onChange = (e) => {
-    setSortStatus(e.target.id);
+    dispatch(setSortStatus(e.target.id));
   };
 
   return (
@@ -47,8 +50,4 @@ const Sort = ({ sortStatus, setSortStatus }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  sortStatus: state.sortStatus,
-});
-
-export default connect(mapStateToProps, { setSortStatus })(Sort);
+export default Sort;

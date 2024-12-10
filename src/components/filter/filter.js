@@ -1,14 +1,17 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { ALL, WITHOUT_TRANSFERS, ONE_TRANSFER, TWO_TRANSFERS, THREE_TRANSFERS } from '../../constants/filters';
 import { toggleFilter } from '../../actions/actions';
 
 import classes from './filter.module.scss';
 
-const Filter = ({ filters, toggleFilter }) => {
+const Filter = () => {
+  const dispatch = useDispatch();
+  const filters = useSelector((state) => state.filters);
+
   const onChange = (e) => {
-    toggleFilter(e.target.id);
+    dispatch(toggleFilter(e.target.id));
   };
 
   return (
@@ -67,8 +70,4 @@ const Filter = ({ filters, toggleFilter }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  filters: state.filters,
-});
-
-export default connect(mapStateToProps, { toggleFilter })(Filter);
+export default Filter;
