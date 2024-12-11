@@ -1,6 +1,8 @@
 import { CHEAP } from '../constants/sort-status';
 import { ALL, WITHOUT_TRANSFERS, ONE_TRANSFER, TWO_TRANSFERS, THREE_TRANSFERS } from '../constants/filters';
 
+import { SET_SORT_STATUS, TOGGLE_FILTER, SET_TICKETS } from './action-types';
+
 const initialState = {
   sortStatus: CHEAP,
   filters: {
@@ -10,16 +12,17 @@ const initialState = {
     [TWO_TRANSFERS]: false,
     [THREE_TRANSFERS]: false,
   },
+  tickets: [],
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'SET_SORT_STATUS':
+    case SET_SORT_STATUS:
       return {
         ...state,
         sortStatus: action.sortStatus,
       };
-    case 'TOGGLE_FILTER': {
+    case TOGGLE_FILTER: {
       let res = {};
       if (action.filterName === ALL) {
         for (let prop in state.filters) {
@@ -38,6 +41,11 @@ const reducer = (state = initialState, action) => {
         filters: res,
       };
     }
+    case SET_TICKETS:
+      return {
+        ...state,
+        tickets: action.tickets,
+      };
     default:
       return state;
   }
