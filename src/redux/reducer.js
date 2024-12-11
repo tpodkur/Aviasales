@@ -1,5 +1,5 @@
-import { CHEAP } from './constants/sort-status';
-import { ALL, WITHOUT_TRANSFERS, ONE_TRANSFER, TWO_TRANSFERS, THREE_TRANSFERS } from './constants/filters';
+import { CHEAP } from '../constants/sort-status';
+import { ALL, WITHOUT_TRANSFERS, ONE_TRANSFER, TWO_TRANSFERS, THREE_TRANSFERS } from '../constants/filters';
 
 const initialState = {
   sortStatus: CHEAP,

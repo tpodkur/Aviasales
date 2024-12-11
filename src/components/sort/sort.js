@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { CHEAP, FAST, OPT } from '../../constants/sort-status';
-import { setSortStatus } from '../../actions/actions';
+import { setSortStatus } from '../../redux/actions/actions';
 
 import classes from './sort.module.scss';
 

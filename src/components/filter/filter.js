@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { ALL, WITHOUT_TRANSFERS, ONE_TRANSFER, TWO_TRANSFERS, THREE_TRANSFERS } from '../../constants/filters';
-import { toggleFilter } from '../../actions/actions';
+import { toggleFilter } from '../../redux/actions/actions';
 
 import classes from './filter.module.scss';
 
