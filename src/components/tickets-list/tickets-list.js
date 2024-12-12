@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Ticket from '../ticket/ticket';
-import { getSearchId } from '../../redux/thunks';
+import { getTickets } from '../../redux/thunks';
 
 import classes from './tickets-list.module.scss';
 
@@ -11,7 +11,7 @@ const TicketsList = () => {
   const tickets = useSelector((state) => state.tickets);
 
   useEffect(() => {
-    dispatch(getSearchId());
+    dispatch(getTickets());
   }, []);
 
   return (
