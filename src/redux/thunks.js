@@ -22,7 +22,7 @@ const queryTickets = (searchId, dispatch) => {
     .then((res) => {
       dispatch(
         setTickets(
-          res.tickets.splice(0, 5).map((item) => {
+          res.tickets.map((item) => {
             const id = 'id' + Math.random().toString(16).slice(2);
             return {
               ...item,

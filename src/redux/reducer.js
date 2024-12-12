@@ -3,6 +3,11 @@ import { ALL, WITHOUT_TRANSFERS, ONE_TRANSFER, TWO_TRANSFERS, THREE_TRANSFERS } 
 
 import { SET_SORT_STATUS, TOGGLE_FILTER, SET_TICKETS, SET_SEARCH_STATUS, SET_SEARCH_ID } from './action-types';
 
+const initialTicketsState = {
+  entities: {},
+  ids: [],
+};
+
 const initialState = {
   sortStatus: CHEAP,
   filters: {
@@ -12,7 +17,7 @@ const initialState = {
     [TWO_TRANSFERS]: false,
     [THREE_TRANSFERS]: false,
   },
-  tickets: [],
+  tickets: initialTicketsState,
   stopSearch: false,
   searchId: '',
 };
@@ -46,7 +51,16 @@ const reducer = (state = initialState, action) => {
     case SET_TICKETS:
       return {
         ...state,
-        tickets: action.tickets,
+        tickets: {
+          ...state.tickets,
+          entities: action.tickets.reduce((acc, ticket) => {
+            return {
+              ...acc,
+              [ticket.id]: ticket,
+            };
+          }, {}),
+          ids: action.tickets.map((ticket) => ticket.id),
+        },
       };
     case SET_SEARCH_STATUS:
       return {

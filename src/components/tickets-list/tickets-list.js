@@ -8,7 +8,8 @@ import classes from './tickets-list.module.scss';
 
 const TicketsList = () => {
   const dispatch = useDispatch();
-  const tickets = useSelector((state) => state.tickets);
+  const ticketsEntities = useSelector((state) => state.tickets.entities);
+  const ids = useSelector((state) => state.tickets.ids);
 
   useEffect(() => {
     dispatch(getTickets());
@@ -16,11 +17,13 @@ const TicketsList = () => {
 
   return (
     <ul className={classes.list}>
-      {tickets.map((ticket) => (
-        <li className={classes.list__item} key={ticket.id}>
-          <Ticket price={ticket.price} carrier={ticket.carrier} segments={ticket.segments} />
-        </li>
-      ))}
+      {ids
+        .map((id) => ticketsEntities[id])
+        .map((ticket) => (
+          <li className={classes.list__item} key={ticket.id}>
+            <Ticket price={ticket.price} carrier={ticket.carrier} segments={ticket.segments} />
+          </li>
+        ))}
     </ul>
   );
 };
