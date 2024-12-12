@@ -5,7 +5,9 @@ import classes from './ticket.module.scss';
 
 const Ticket = ({ id, price, carrier, segments }) => {
   const carrierLogoUrl = `https://images.daisycon.io/airline/?width=110&height=36&color=ffffff&iata=${carrier}`;
-  price = price.toString().slice(0, 2) + ' ' + price.toString().slice(2);
+  const thousands = Math.trunc(price / 1000).toString();
+  const hundreds = price % 1000 < 100 ? '0' + (price % 1000) : price % 1000;
+  price = thousands + ' ' + hundreds;
 
   return (
     <div className={classes.card}>

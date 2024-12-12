@@ -19,6 +19,7 @@ const TicketsList = () => {
     <ul className={classes.list}>
       {ids
         .map((id) => ticketsEntities[id])
+        .sort((a, b) => a.price - b.price)
         .map((ticket) => (
           <li className={classes.list__item} key={ticket.id}>
             <Ticket price={ticket.price} carrier={ticket.carrier} segments={ticket.segments} />
