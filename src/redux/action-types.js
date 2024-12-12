@@ -3,3 +3,7 @@ export const SET_SORT_STATUS = 'SET_SORT_STATUS';
 export const TOGGLE_FILTER = 'TOGGLE_FILTER';
 
 export const SET_TICKETS = 'SET_TICKETS';
+
+export const SET_SEARCH_STATUS = 'SET_SEARCH_STATUS';
+
+export const SET_SEARCH_ID = 'SET_SEARCH_ID';

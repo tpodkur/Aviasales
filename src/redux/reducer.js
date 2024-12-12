@@ -1,7 +1,7 @@
 import { CHEAP } from '../constants/sort-status';
 import { ALL, WITHOUT_TRANSFERS, ONE_TRANSFER, TWO_TRANSFERS, THREE_TRANSFERS } from '../constants/filters';
 
-import { SET_SORT_STATUS, TOGGLE_FILTER, SET_TICKETS } from './action-types';
+import { SET_SORT_STATUS, TOGGLE_FILTER, SET_TICKETS, SET_SEARCH_STATUS, SET_SEARCH_ID } from './action-types';
 
 const initialState = {
   sortStatus: CHEAP,
@@ -13,6 +13,8 @@ const initialState = {
     [THREE_TRANSFERS]: false,
   },
   tickets: [],
+  stopSearch: false,
+  searchId: '',
 };
 
 const reducer = (state = initialState, action) => {
@@ -46,6 +48,19 @@ const reducer = (state = initialState, action) => {
         ...state,
         tickets: action.tickets,
       };
+    case SET_SEARCH_STATUS:
+      return {
+        ...state,
+        stopSearch: action.status,
+      };
+    case SET_SEARCH_ID:
+      if (!state.searchId) {
+        return {
+          ...state,
+          searchId: action.id,
+        };
+      }
+      return state;
     default:
       return state;
   }
