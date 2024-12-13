@@ -18,15 +18,21 @@ const Ticket = ({ id, price, carrier, segments }) => {
 
       {segments.map((item) => {
         let stopsWord;
-        if (item.stops % 10 === 1) {
+        if (item.stops.length % 10 === 1) {
           stopsWord = 'пересадка';
-        } else if (item.stops % 10 === 0 || item.stops % 10 > 4) {
+        } else if (item.stops.length % 10 === 0 || item.stops % 10 > 4) {
           stopsWord = 'пересадок';
         } else {
           stopsWord = 'пересадки';
         }
 
         const finishDate = add(item.date, { minutes: item.duration });
+
+        const stops = item.stops
+          .reduce((acc, stopName) => {
+            return acc + stopName + ', ';
+          }, '')
+          .slice(0, -2);
 
         return (
           <div className={classes.card__details} key={id + item.origin}>
@@ -54,7 +60,7 @@ const Ticket = ({ id, price, carrier, segments }) => {
                   {item.stops.length} {stopsWord}
                 </p>
                 <p className={`${classes.column__value} ${classes['column__value--uppercase']}`}>
-                  {item.stops.length ? `${item.stops[0]}, ${item.stops[1]}` : '-'}
+                  {item.stops.length ? stops : '-'}
                 </p>
               </div>
             </div>
