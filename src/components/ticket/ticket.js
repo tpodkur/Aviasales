@@ -27,6 +27,10 @@ const Ticket = ({ id, price, carrier, segments }) => {
         }
 
         const finishDate = add(item.date, { minutes: item.duration });
+        const startHours = getHours(item.date) < 10 ? `0${getHours(item.date)}` : getHours(item.date);
+        const startMinutes = getMinutes(item.date) < 10 ? `0${getMinutes(item.date)}` : getMinutes(item.date);
+        const finishHours = getHours(finishDate) < 10 ? `0${getHours(finishDate)}` : getHours(finishDate);
+        const finishMinutes = getMinutes(finishDate) < 10 ? `0${getMinutes(finishDate)}` : getMinutes(finishDate);
 
         const stops = item.stops
           .reduce((acc, stopName) => {
@@ -42,7 +46,7 @@ const Ticket = ({ id, price, carrier, segments }) => {
                   {item.origin} - {item.destination}
                 </p>
                 <p className={classes.column__value}>
-                  {getHours(item.date)}:{getMinutes(item.date)} - {getHours(finishDate)}:{getMinutes(finishDate)}
+                  {startHours}:{startMinutes} - {finishHours}:{finishMinutes}
                 </p>
               </div>
             </div>
