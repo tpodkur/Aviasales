@@ -11,11 +11,11 @@ const initialTicketsState = {
 const initialState = {
   sortStatus: CHEAP,
   filters: {
-    [ALL]: false,
-    [WITHOUT_TRANSFERS]: false,
-    [ONE_TRANSFER]: false,
-    [TWO_TRANSFERS]: false,
-    [THREE_TRANSFERS]: false,
+    [ALL]: true,
+    [WITHOUT_TRANSFERS]: true,
+    [ONE_TRANSFER]: true,
+    [TWO_TRANSFERS]: true,
+    [THREE_TRANSFERS]: true,
   },
   tickets: initialTicketsState,
   stopSearch: false,
