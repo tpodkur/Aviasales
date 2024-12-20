@@ -31,6 +31,11 @@ const queryTickets = (searchId, dispatch) => {
           })
         )
       );
+
+      if (!res.stop) {
+        queryTickets(searchId, dispatch);
+      }
+
       dispatch(setSearchStatus(res.stop));
     })
     .catch(() => dispatch(setTickets([])));

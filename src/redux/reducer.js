@@ -61,13 +61,16 @@ const reducer = (state = initialState, action) => {
         ...state,
         tickets: {
           ...state.tickets,
-          entities: action.tickets.reduce((acc, ticket) => {
-            return {
-              ...acc,
-              [ticket.id]: ticket,
-            };
-          }, {}),
-          ids: action.tickets.map((ticket) => ticket.id),
+          entities: {
+            ...state.tickets.entities,
+            ...action.tickets.reduce((acc, ticket) => {
+              return {
+                ...acc,
+                [ticket.id]: ticket,
+              };
+            }, {}),
+          },
+          ids: [...state.tickets.ids, ...action.tickets.map((ticket) => ticket.id)],
         },
       };
     case SET_SEARCH_STATUS:
