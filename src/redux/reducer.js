@@ -1,7 +1,14 @@
 import { CHEAP } from '../constants/sort-status';
 import { ALL, WITHOUT_TRANSFERS, ONE_TRANSFER, TWO_TRANSFERS, THREE_TRANSFERS } from '../constants/filters';
 
-import { SET_SORT_STATUS, TOGGLE_FILTER, SET_TICKETS, SET_SEARCH_STATUS, SET_SEARCH_ID } from './action-types';
+import {
+  SET_SORT_STATUS,
+  TOGGLE_FILTER,
+  SET_TICKETS,
+  SET_SEARCH_STATUS,
+  SET_SEARCH_ID,
+  INCREASE_VISIBLE_TICKETS_COUNT,
+} from './action-types';
 
 const initialTicketsState = {
   entities: {},
@@ -20,6 +27,7 @@ const initialState = {
   tickets: initialTicketsState,
   stopSearch: false,
   searchId: '',
+  visibleTicketsCount: 5,
 };
 
 const reducer = (state = initialState, action) => {
@@ -75,6 +83,11 @@ const reducer = (state = initialState, action) => {
         };
       }
       return state;
+    case INCREASE_VISIBLE_TICKETS_COUNT:
+      return {
+        ...state,
+        visibleTicketsCount: state.visibleTicketsCount + 5,
+      };
     default:
       return state;
   }
