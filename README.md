@@ -2,7 +2,7 @@
 
 A simple flight search application. Filter tickets by the number of transfers and sort them by price and flight time.
 
-The deployed application is available on [Aviasales](https://aviasales-q42rt0r3d-tatianas-projects-a15f77d5.vercel.app).
+The deployed application is available on [Aviasales](https://aviasales-8rkiwvi3g-tatianas-projects-a15f77d5.vercel.app/).
 
 <br>
 
