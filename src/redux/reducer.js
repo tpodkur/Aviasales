@@ -28,6 +28,7 @@ const initialState = {
   stopSearch: false,
   searchId: '',
   visibleTicketsCount: 5,
+  loading: true,
 };
 
 const reducer = (state = initialState, action) => {
@@ -59,6 +60,7 @@ const reducer = (state = initialState, action) => {
     case SET_TICKETS:
       return {
         ...state,
+        loading: false,
         tickets: {
           ...state.tickets,
           entities: {

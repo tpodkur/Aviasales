@@ -7,6 +7,7 @@ import { ALL, WITHOUT_TRANSFERS, ONE_TRANSFER, TWO_TRANSFERS, THREE_TRANSFERS } 
 import { getTickets } from '../../redux/thunks';
 import { increaseVisibleTicketsCount } from '../../redux/actions';
 import Ticket from '../ticket/ticket';
+import Spinner from '../spinner/spinner';
 
 import classes from './tickets-list.module.scss';
 
@@ -63,6 +64,7 @@ const selectSortedTickets = createSelector(
 const TicketsList = () => {
   const dispatch = useDispatch();
   const tickets = useSelector(selectSortedTickets);
+  const loading = useSelector((state) => state.loading);
 
   const onClick = () => {
     dispatch(increaseVisibleTicketsCount());
@@ -72,26 +74,30 @@ const TicketsList = () => {
     dispatch(getTickets());
   }, []);
 
-  return (
-    <>
-      {tickets.length ? (
-        <>
-          <ul className={classes.list}>
-            {tickets.map((ticket) => (
-              <li className={classes.list__item} key={ticket.id}>
-                <Ticket price={ticket.price} carrier={ticket.carrier} segments={ticket.segments} />
-              </li>
-            ))}
-          </ul>
-          <button className={`${classes['show-tickets']} ${classes['list__show-tickets']}`} onClick={onClick}>
-            показать еще 5 билетов!
-          </button>
-        </>
-      ) : (
-        <p className={classes.list__message}>Рейсов, подходящих под заданные фильтры, не найдено</p>
-      )}
-    </>
+  const spinner = (
+    <div className={classes.list__spinner}>
+      <Spinner size="large" />
+    </div>
   );
+
+  const content = tickets.length ? (
+    <>
+      <ul className={classes.list}>
+        {tickets.map((ticket) => (
+          <li className={classes.list__item} key={ticket.id}>
+            <Ticket price={ticket.price} carrier={ticket.carrier} segments={ticket.segments} />
+          </li>
+        ))}
+      </ul>
+      <button className={`${classes['show-tickets']} ${classes['list__show-tickets']}`} onClick={onClick}>
+        показать еще 5 билетов!
+      </button>
+    </>
+  ) : (
+    <p className={classes.list__message}>Рейсов, подходящих под заданные фильтры, не найдено</p>
+  );
+
+  return <div className={classes['list-container']}>{loading ? spinner : content}</div>;
 };
 
 export default TicketsList;

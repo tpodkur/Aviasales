@@ -15,6 +15,15 @@
   &__show-tickets {
     margin: 20px 0 50px 0;
   }
+
+  &__spinner {
+    margin: 50px auto;
+  }
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
 }
 
 .show-tickets {
