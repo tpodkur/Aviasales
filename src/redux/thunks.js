@@ -10,7 +10,9 @@ export const getTickets =
           dispatch(setSearchId(res.searchId));
           queryTickets(res.searchId, dispatch);
         })
-        .catch(console.error);
+        .catch(() => {
+          console.log(1);
+        });
     } else {
       queryTickets(searchId, dispatch);
     }
@@ -38,5 +40,8 @@ const queryTickets = (searchId, dispatch) => {
 
       dispatch(setSearchStatus(res.stop));
     })
-    .catch(() => dispatch(setTickets([])));
+    .catch(() => {
+      console.log(2);
+      dispatch(setTickets([]));
+    });
 };
