@@ -8,6 +8,7 @@ import {
   SET_SEARCH_STATUS,
   SET_SEARCH_ID,
   INCREASE_VISIBLE_TICKETS_COUNT,
+  SET_REQUEST_ERROR,
 } from './action-types';
 
 const initialTicketsState = {
@@ -29,6 +30,7 @@ const initialState = {
   searchId: '',
   visibleTicketsCount: 5,
   loading: true,
+  requestError: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -92,6 +94,17 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         visibleTicketsCount: state.visibleTicketsCount + 5,
+      };
+    case SET_REQUEST_ERROR:
+      if (state.tickets.ids.length) {
+        return {
+          ...state,
+          requestError: false,
+        };
+      }
+      return {
+        ...state,
+        requestError: true,
       };
     default:
       return state;

@@ -5,6 +5,7 @@ import {
   SET_SEARCH_STATUS,
   SET_SEARCH_ID,
   INCREASE_VISIBLE_TICKETS_COUNT,
+  SET_REQUEST_ERROR,
 } from './action-types';
 
 export const setSortStatus = (sortStatus) => ({ type: SET_SORT_STATUS, sortStatus });
@@ -18,3 +19,5 @@ export const setSearchStatus = (status) => ({ type: SET_SEARCH_STATUS, status })
 export const setSearchId = (id) => ({ type: SET_SEARCH_ID, id });
 
 export const increaseVisibleTicketsCount = () => ({ type: INCREASE_VISIBLE_TICKETS_COUNT });
+
+export const setRequestError = () => ({ type: SET_REQUEST_ERROR });

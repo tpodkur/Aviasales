@@ -65,6 +65,7 @@ const TicketsList = () => {
   const dispatch = useDispatch();
   const tickets = useSelector(selectSortedTickets);
   const loading = useSelector((state) => state.loading);
+  const isRequestError = useSelector((state) => state.requestError);
 
   const onClick = () => {
     dispatch(increaseVisibleTicketsCount());
@@ -97,7 +98,19 @@ const TicketsList = () => {
     <p className={classes.list__message}>Рейсов, подходящих под заданные фильтры, не найдено</p>
   );
 
-  return <div className={classes['list-container']}>{loading ? spinner : content}</div>;
+  const requestErrorMessage = (
+    <p className={classes.list__message}>Что-то пошло не так :( Попробуйте перезагрузить страницу</p>
+  );
+
+  let listContainerContent = content;
+  if (loading) {
+    listContainerContent = spinner;
+  }
+  if (isRequestError) {
+    listContainerContent = requestErrorMessage;
+  }
+
+  return <div className={classes['list-container']}>{listContainerContent}</div>;
 };
 
 export default TicketsList;

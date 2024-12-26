@@ -1,4 +1,4 @@
-import { setSearchStatus, setTickets, setSearchId } from './actions';
+import { setSearchStatus, setTickets, setSearchId, setRequestError } from './actions';
 
 export const getTickets =
   (searchId = '') =>
@@ -38,5 +38,5 @@ const queryTickets = (searchId, dispatch) => {
 
       dispatch(setSearchStatus(res.stop));
     })
-    .catch(() => dispatch(setTickets([])));
+    .catch(() => dispatch(setRequestError()));
 };
